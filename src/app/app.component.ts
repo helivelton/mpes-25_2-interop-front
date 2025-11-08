@@ -141,9 +141,16 @@ export class AppComponent implements AfterViewInit {
           scales: {
             y: {
               beginAtZero: true,
+              // static scale: 0..255 for RGB sensor values
+              min: 0,
+              max: 255,
               title: {
                 display: true,
                 text: 'Light Intensity'
+              },
+              ticks: {
+                // optional: keep ticks readable
+                stepSize: 51
               }
             }
           },
@@ -171,14 +178,17 @@ export class AppComponent implements AfterViewInit {
           labels: ['Entrada', 'Saída', 'Pessoas no local'],
           datasets: [{
             label: 'I/O Values',
-            data: [0, 0],
+            // match labels: entrada, saida, pessoas
+            data: [0, 0, 0],
             backgroundColor: [
               'rgba(75, 192, 192, 0.7)',
-              'rgba(255, 159, 64, 0.7)'
+              'rgba(255, 159, 64, 0.7)',
+              'rgba(153, 102, 255, 0.7)'
             ],
             borderColor: [
               'rgb(75, 192, 192)',
-              'rgb(255, 159, 64)'
+              'rgb(255, 159, 64)',
+              'rgb(153, 102, 255)'
             ],
             borderWidth: 2
           }]
@@ -189,9 +199,15 @@ export class AppComponent implements AfterViewInit {
           scales: {
             y: {
               beginAtZero: true,
+              // static scale: 0..30 for entradas/saidas/people
+              min: 0,
+              max: 30,
               title: {
                 display: true,
                 text: 'Quantidade'
+              },
+              ticks: {
+                stepSize: 5
               }
             }
           },
