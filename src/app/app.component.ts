@@ -83,17 +83,12 @@ export class AppComponent implements AfterViewInit {
     if (!luminosity) {
       return 'rgba(255, 255, 255, 1)';
     }
-    
+
     const red = luminosity.red || 0;
     const green = luminosity.green || 0;
     const blue = luminosity.blue || 0;
-    const clear = luminosity.clear || 0;
-    
-    // Normalize the clear value to use as opacity (0-255 -> 0-1)
-    // Or you can use it as a brightness multiplier
-    const opacity = Math.min(clear / 255, 1);
-    
-    return `rgba(${red}, ${green}, ${blue}, ${opacity})`;
+
+    return `rgba(${red}, ${green}, ${blue}, 1)`;
   }
 
   ngAfterViewInit() {
