@@ -1,0 +1,33 @@
+<div class="container">
+  <header>
+    <h1>Monitor de Ocupação</h1>
+    <p class="subtitle">Monitoramento de ocupação e uso eficiente de local.</p>
+
+    <div class="light-button" [style.background-color]="currentLightColor">
+      <span class="light-label">Luz</span>
+    </div>
+  </header>
+
+  <div class="charts-container">
+    <div class="chart-wrapper">
+      <canvas #luminosityChart></canvas>
+    </div>
+    
+    <div class="chart-wrapper">
+      <canvas #ioChart></canvas>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-actions">
+      <button (click)="updateAtuador()" class="btn btn-primary">{{doorStateOpen ? 'Fechar' : 'Abrir'}} Porta</button>
+    </div>
+  </div>
+
+  <!-- <div class="data-display">
+    <h3>Raw Data:</h3>
+    <pre>{{ firebaseData | json }}</pre>
+  </div> -->
+</div>
+
+<router-outlet />
